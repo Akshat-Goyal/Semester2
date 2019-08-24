@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<title>q4</title>
+</head>
+<body>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Marks</th>
+			</tr>
+		</thead>
+		<tbody id="tbody">
+			
+		</tbody>
+	</table>
+	<form>
+		<input id="text" type="text" name="letter">
+		<input id="submit" type="submit" name="submit">
+	</form>
+	<script type="text/javascript">
+		$("#submit").click(function(){
+			getData($("#text").val());
+			return false;
+		});
+
+		var arr=new Array();
+
+		function getData(letter){
+			$.ajax({
+				url:'http://localhost:8000/getmarks',
+				method:'POST',
+				data:{
+					'letter':letter,
+				},
+
+				success: function(response){
+					arr=response;
+					console.log(arr);
+				},
+				error: function(response){
+					console.log(response.statusText);
+				},
+			});
+
+			$("#tbody tr").remove();
+
+			for(var i in arr){
+				$("#tbody").append("<tr>"+"<td>"+i+"</td>"+"<td>"+arr[i]+"</td>"+"</tr>");
+			}
+		}
+
+	</script>
+</body>
+</html>

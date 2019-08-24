@@ -1,0 +1,25 @@
+select ename from emp where deptno is null or deptno not in (select deptno from dept);
+select ename from emp order by salary asc limit 1 offset n-1;
+select ename,mgrno from emp;
+select count(emp.deptno),dept.deptname from emp,dept where emp.deptno=dept.deptno group by emp.deptno;		#select count(e.deptno),d.deptname from emp e inner join dept d on d.deptno=e.deptno group by e.deptno;
+select ename from emp where salary > (select avg(salary) from emp);
+select ename from emp where ename like '%Ab%';
+select ename from emp where deptno!=(select deptno from dept where deptname='xx') or deptno is null;
+select * from emp,dept;
+select ename,salary,mgrno,deptno,dob,count(*) as count from emp group by ename,salary,mgrno,deptno,dob having count(*) > 1;
+select ename from emp where salary%2=0;
+select a.ename,b.ename from emp a,emp b where a.empno<>b.empno and a.deptno=b.deptno;
+select ename from emp where deptno=10 and deptno in (select deptno from dept);
+select min(salary),max(salary) from emp;
+
+select distinct(salary) from emp;
+create table employee_dup as (select * from emp);
+select * from emp order by salary,deptno;
+update emp set salary=salary+1 where deptno between 10 and 20;
+select e.ename from emp e where (month(date_add(e.dob,interval 60 year))=month(date_add(current_date,interval 1 month)) or (month(date_add(e.dob,interval 60 year))=month(current_date) and date_format(date_add(e.dob,interval 60 year),'%d')>=date_format(current_date,'%d'))) and year(date_add(e.dob,interval 60 year))=year(current_date);
+select ename from emp group by ename having count(*)>1;
+insert into emp(ename,salary,mgrno,deptno,dob) values('swastik',3238,1,3,'2003-03-13');
+select * from emp;
+select * from emp where deptno between 10 and 20;
+select deptno,deptname from dept where deptno not in (select deptno from emp where deptno is not null);
+delete from emp;

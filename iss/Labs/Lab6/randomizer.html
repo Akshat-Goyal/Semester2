@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<style type="text/css">
+		img{
+			display: none;
+		}
+	</style>
+	<title>q1</title>
+</head>
+<body>
+	<div><button>Reset</button></div>
+	<div>
+		<p class="para">This is some text.</p>
+		<p class="para">This is some text.</p>
+		<p class="para">This is some text.</p>
+		<p class="para">This is some text.</p>
+	</div>
+	<div><img src="EifelTower.png"></div>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("img").fadeIn(1000);
+			$(".para").contextmenu(function(){
+				$(this).css("fontWeight","bold")
+			}).click(function(){
+				$(this).hide();
+			});
+		});
+
+		$("button").click(function(){
+			$(".para").show().css("fontWeight","");
+		});
+	</script>
+</body>
+</html>

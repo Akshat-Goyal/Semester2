@@ -1,0 +1,93 @@
+/*----------------------------------------------------------------------------
+
+LAB EXERCISE:SQUARE ROOT APPROXIMATION
+
+--------------------------------------
+
+Write an assembly code subroutine to approximate the square root of an argument 
+
+using the bisection method. All math is done with integers, so the resulting 
+
+square root will also be an integer
+
+ *----------------------------------------------------------------------------*/
+
+
+
+__asm int my_sqrt(int x)
+
+{
+
+	//Write your code here
+	PUSH {R4-R7,LR}
+	LDR R1,=0               ;done=0
+	LDR R2,=0               ;a=0
+	LDR R3,=0xFFFF          ;b=2^16-1
+	LDR R4,=0xFFFFFFFF      ;c=-1
+	Do
+	  MOV R5,R4
+	  ADD R6,R2,R3
+	  DIV R4,R6,#0x00000002
+	  CMP R4,R0
+	  BEQ equal
+	  BLT less_than
+	  MOV R3,R4
+	  B While
+
+	equal
+	  LDR R1,=1
+	  B stop
+	
+	less_than
+	  MOV R2,R4
+	  B While
+
+	While
+	  CMP R5,R4
+	  BQE stop
+	  BNE Do
+
+	stop
+	  MOV R0,R3
+	  POP {R4-R7,PC}
+
+
+}
+
+
+
+int main(void)
+
+{
+
+		volatile int r, j=0;
+
+		int i;
+
+		r = my_sqrt(0); 	// should be 0
+
+		r = my_sqrt(25); 	// should be 5
+
+		r = my_sqrt(133); // should be 11
+
+	
+
+		for (i=0; i<10000; i++) {
+
+			r = my_sqrt(i);
+
+			j+=r;
+
+		}
+
+		
+
+
+
+		while (1)
+
+			;
+
+}
+
+// *******************************ARM University Program Copyright © ARM Ltd 2013*************************************   

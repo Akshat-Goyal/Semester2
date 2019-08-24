@@ -1,0 +1,227 @@
+% \documentclass[11pt]{article}
+% \usepackage{fullpage}
+% \usepackage{parskip}
+% \usepackage{graphicx}
+% \usepackage{amsmath}
+% \usepackage{comment}
+% \usepackage{amssymb}
+% \usepackage{amsthm}
+% \usepackage{fancyvrb}
+% \usepackage{algorithm}
+% \usepackage[noend]{algpseudocode}
+% \theoremstyle{definition}
+% \newtheorem{definition}{Definition}
+% \theoremstyle{plain}
+% \newtheorem{theorem}{Theorem}
+% \newtheorem{lemma}{Lemma}
+% \newtheorem{example}{Example}[section]
+
+% \parindent0in
+% \pagestyle{plain}
+% \thispagestyle{plain}
+                
+\documentclass[11pt]{article}
+
+\usepackage{parskip}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{fancyvrb}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{example}{Example}[section]
+\parindent0in
+\pagestyle{plain}
+\thispagestyle{plain}
+%% UPDATE MACRO DEFINITIONS %%
+\newcommand{\myname}{Scribed By: Manish(2018101073)}
+\newcommand{\mynami}{Akshat Goyal(2018101075)}
+\newcommand{\mynamj}{Dixit Kumar Garg(2018101077)}
+\newcommand{\mynamk}{Gadela Kesav(2018101079)}
+\newcommand{\assignment}{Lecture \#7}
+\newcommand{\duedate}{18.02.2019}
+\newtheorem*{thmtype}{Outline}
+\newcommand{\statement}{
+We introduce Reinforcement Learning with the Multi Arm Bandit (MAB).
+}
+
+\begin{document}
+
+\textbf{IIIT Hyderabad}\hfill\\[0.01in]
+\textbf{-}\hfill\textbf{\myname}\\[0.01in]
+\textbf{-}\hfill\textbf{\mynami}\\[0.01in]
+\textbf{-}\hfill\textbf{\mynamj}\\[0.01in]
+\textbf{-}\hfill\textbf{\mynamk}\\[0.01in]
+\textbf{Linear Algebra (MA3.101)}\hfill\textbf{\assignment}\\[0.01in]
+\textbf{Instructor: Dr.\ Naresh Manwani}\hfill\textbf{\duedate}\\
+\smallskip\hrule\bigskip
+
+\begin{thmtype}
+\statement
+\end{thmtype}
+
+\section{Spanning Set}
+  \begin{lemma}
+  Let $S_1$ be a spanning set of $\mathbf{W}$ \subset $\mathbf{V}$. Suppose $S_2$ spans $S_1$ , then $S_2$ spans $\mathbf{W}$.
+  \end{lemma}
+  \begin{proof}
+  $$ \mathbf{W} \subset \text{span($S_1$)}$$
+  $$\text{$S_1$} \subset \text{span($S_2$)}$$
+  $\text{By definition of span,}$
+  $$\text{span(span($S_2$))=span($S_2$) }$$
+  $\therefore$ $S_2$ spans $\mathbf{W}$
+  \end{proof}
+  
+  \begin{lemma}
+  Let S=\{$\vec{a_1},\dots,\vec{a_n}\} \text{ be a spanning set of \mathbf{W}. } Then\ S^{'}\ =\ S\backslash\{\vec{a_i}\} \cup \ \{c\vec{a_i}+\Sigma^n_{j=1 j \neq i}\vec{a_j}\},\\c \neq 0,c \in \mathbf{    F}\ spans\ \mathbf{W}.$
+ \end{lemma}
+  \begin{proof}
+  To prove it,it's sufficient to show that $S^'$ spans S by using previous lemma.
+ $\\\\Clearly,$
+ $$\text{ $\vec{a_j}$_{\ j \neq i}, \in\ $S^'$ $\subset$ span{$S^'$}}$$
+  $Let,$
+  $$\text{ $\vec{a^{'}} = \{c\vec{a_i}+\Sigma^n_{j=1 j \neq i}\vec{a_j}\} \in S^{'} $}$$
+  $Also,$
+  $$\text{ $\vec{a_i} = c^{-1}(\vec{a^{'}}-\Sigma^n_{j=1 j \neq i}c_{j}\vec{a_{j}})\ as\ c \neq 0,c_{j} \in \mathbf{F}$}$$
+ $ \text{As $\vec{a_i}$ can be written as linear combination of vectors $\in$ $S^'$}$
+ $\\$
+ $\text{By definition of span,}$
+  $$\text{$\therefore$ $\vec{a_i}$ $\in$ span($S^{'}$)}$$
+  $$\text{$\Rightarrow$ $S^'$ spans S}$$
+  $\therefore$By using previous lemma
+  $S^'$ spans $\mathbf{W}$
+  \end{proof}
+  
+ \begin{lemma}
+
+
+Let \textbf{S} be a set of \( n \) vectors which span \textbf{W} $\subseteq$ \textbf{V},then the size of any linearly independent subset of \textbf{W} is
+$\leq$ \( n\)
+\end{lemma}
+\begin{proof}
+Let
+   \textbf{R} = \{ $\bar{\beta_1},\bar{\beta_2},.......,\bar{\beta_n}$\} $\subseteq$ \textbf{W}
+   be a set of \( m\) linearly independent vectors in \textbf{W} ( \( m\) $>$ \( n\)) 
+   \begin{center}
+       \textbf{R} = ( \textbf{R} $\cap$ \textbf{S}) $\cup$ 
+       (\textbf{R} $\setminus$ ( \textbf{R} $\cap$ \textbf{S}))
+\end{center}
+       Suppose ,   $|( \textbf{R} \cap \textbf{S} )|$=\( j\)
+   \\    
+   \begin{center}
+       
+   \textbf{R} $\cap$ \textbf{S} = \{ $\bar{\beta_1},\bar{\beta_2},.......\bar{\beta_j}$\}
+    \end{center}
+ $Let,$
+ \begin{center}
+  $\bar{\beta_{j+1}}$ $\varepsilon$  (\textbf{R} $\setminus$ ( \textbf{R}
+ $\cap$ \textbf{S}))
+ \\
+ \end{center}
+ $Also,$
+ \begin{center}
+     
+ 
+  (\textbf{R} $\setminus$ ( \textbf{R}          $\cap$ \textbf{S})) $\subseteq$ \textbf{S} 
+ \\
+ $\Longrightarrow$  ( \textbf{R}          $\cap$ \textbf{S})  $\subset$ \textbf{S}  or  ( \textbf{R}          $\cap$ \textbf{S})  = \textbf{S}
+ 
+ 
+\end{center}
+ \textbf{case \( 1\): ( \textbf{R}          $\cap$ \textbf{S})  = \textbf{S}}
+ 
+ \begin{center}
+     
+  $\Longrightarrow$ $\because$ $\bar{\beta_{j+1}}$ $\varepsilon$ \textit{span}( \textbf{S})   ,   $\bar{\beta_{j+1}}$ $\varepsilon$ \textit{span}( \textbf{R}
+ $\cap$ \textbf{S})
+ \newline
+ \\$\Longrightarrow$ $\bar{\beta_{j+1}}$ can be expressed as linear combination of set  ( \textbf{R}
+ $\cap$ \textbf{S})
+ \\
+ $\therefore$ any set containing set ( \textbf{R}
+ $\cap$ \textbf{S}) and $\bar\beta_{j+1}$ can not be a linearly independent set
+ \newline
+ \\$\Longrightarrow$ \textbf{R} is not a linearly independent set
+\end{center}
+\textbf{case \( 2\) : ( \textbf{R}          $\cap$ \textbf{S})  $\subset$ \textbf{S}}
+\begin{center}
+    
+
+let
+   \textbf{S} = \{ $\bar{\beta_1},\bar{\beta_2},.......\bar{\beta_j},\bar{\alpha_{j+1}},....\bar{\alpha_n}$\} $\subseteq$ \textbf{W} , where \{ $\bar{\alpha_{j+1}},\bar{\alpha_{j+2}},.......\bar{\alpha_n}$\} = 
+(\textbf{S} $\setminus$ ( \textbf{R}
+ $\cap$ \textbf{S}))
+ \newline
+ \\
+ $\because$ \textbf{W} $\subseteq$ \textbf{S} and $\bar{\beta_{j+1}}$  $\varepsilon$ 
+ \textbf{W} , $\bar{\beta_{j+1}}$ $\varepsilon$ \textit{span}(\textbf{S})
+\newline
+ \\
+
+ $\bar{\beta_{j+1}}$ = 
+$\sum_{i=1}^{j} {c}_i\bar{\beta_i}$
+ $\sum_{k=j+1}^{n} {c}_k\bar{\alpha_k}$
+\end{center}
+
+
+Since R is linearly independent set, $\exists$ atleast one $c_k$ $\neq$ 0,  \ \ \ (k $\in$ [ j+i, n])
+\\ Let j $\in$ [ j+1, n] such that $c_{j+1}$ $\neq$ 0,
+$$ \text{$\implies$ $\vec{\beta_{j+1}}$ = $c_{ji}$ $\vec{\alpha_{ji}}$ + (  $\sum_{i=1}^{j}$ $c_{i}$ $\vec{\beta_{i}}$ \ + $\sum_{k=j+1\ k\neq ji}^{n}$$c_{k}$ $\vec{\alpha_{k}}$\ \ ($c_{ji}$ $\neq$\ 0 \ )}$$
+By lemma 2,
+\\
+ $$\text{$S_{1}$ = S\ $\backslash$\ \{$\vec{\alpha_{ji}}$\}$\ \cup$\ \{$\vec{\beta_{j+1}}$\} \ spans\ $\mathbf{W}$.}$$
+Use $S_{1}$ in place of S and keep on repeating this process,
+$$\text{R=(S\ \cap \ R )\ \cup  \ (R\ $\backslash$ S $\cap$ R)\  \ (where \ S \ is \ now \ $S_{1}$)}$$
+By induction at some point we will get R $\cap$ S = S
+\\ From case 1, R is not a linearly independent set.
+\\
+\\
+Hence Proved.
+  \end{proof}
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+\section{Finite Dimensional Vector Space}
+A vector space $\mathbf{V}$ is said to be a finite dimensional vector space if it contains a finite basis.
+% \section{Subspace}
+
+\begin{theorem}
+Any two basis of a finite dimensional vector space contains the same number of elements.
+\end{theorem}
+
+\begin{proof}
+Let $\mathbf{B_1} = \{ \vec{0} , \vec{r_2} , \vec{r_3} , .. , \vec{r_n}\}\text{ be a basis(finite)\newline}. $
+
+
+\begin{itemize}
+    \item \text{Note that, } $\mathbf{B_1}$ \text{ spans } $\mathbf{V} \Rightarrow \text{Any other set of linearly independent vectors in } $\textbf{V}$ \text{ can't have cardinality}>\text{n (from Lemma 3.)} $ 
+    \item \text{Also note that, any other basis } $\mathbf{B_2} \text{ has only m}<=n\text{ elements. }$$\mathbf{B_2} \text{ is also a spanning set.}$
+    $$|\mathbf{B_1}|=n<=m \text{ and } |\mathbf{B_1}|=n<=m \Rightarrow n=m$$
+    
+\end{itemize}
+Thus \text{number of elements in } $\mathbf{B_1}$ and $\mathbf{B_2}$ is same.
+\end{proof}
+\pagebreak
+
+\begin{thebibliography}{1}
+\bibitem{1}
+Linear Algebra  by  Kenneth Hoffman and Ray Kunze, 2nd edition, Prentice Hall of India Private Limited, 2006.
+
+\end{thebibliography}
+
+\end{document}
