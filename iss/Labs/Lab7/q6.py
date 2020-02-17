@@ -1,7 +1,7 @@
 import requests as req
 
-r=req.get('https://api.opendota.com/api/players/431931403/heroes?significant=0');
-r=r.json();
+r=req.get('https://api.opendota.com/api/players/431931403/heroes?significant=0')
+r=r.json()
 maxi=0
 x=0
 y=0

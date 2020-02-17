@@ -7,22 +7,26 @@ then
 	exit 1
 fi
 
-if [ -e "in.txt" ]
-then
-  rm "in.txt"
-fi
+# if [ -e "in.txt" ]
+# then
+#   rm "in.txt"
+# fi
 
-node test_good.js > "in.txt"
+node test.js > "in.txt"
 
 # put the paths below
-./g < "in.txt" > "11.txt"
-./a.out < "in.txt" > "22.txt"
+./mk < "in.txt" > "11.txt"
+./mn < "in.txt" > "22.txt"
 cmp "11.txt" "22.txt"
 if (( $? == 0  ))
 then
     ./test.sh $(($i + 1))
-     exit $?
 else
 	echo wrong
+  echo manish
+  cat 22.txt
+  echo ""
+  echo mayank
+  cat 11.txt
 	exit 0
 fi
