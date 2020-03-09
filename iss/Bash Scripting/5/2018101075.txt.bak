@@ -1,0 +1,65 @@
+loadkeys (1)         - load keyboard translation tables
+loadunimap (8)       - load the kernel unicode-to-font mapping table
+local (8postfix)     - Postfix local mail delivery
+local-filesystems (7) - event signalling that local filesystems have been mounted
+localc (1)           - LibreOffice office suite
+locale (1)           - get locale-specific information
+locale (5)           - describes a locale definition file
+locale (7)           - description of multilanguage support
+locale-gen (8)       - generates localisation files from templates
+locale.conf (5)      - Configuration file for locale settings
+locale.gen (5)       - Configuration file for locale-gen
+Locale::gettext (3pm) - message handling functions
+localeconv (3)       - get numeric formatting information
+localectl (1)        - Control the system locale and keyboard layout settings
+localedef (1)        - compile locale definition files
+localtime (3)        - transform date and time to broken-down time or ASCII
+localtime (5)        - Local timezone configuration file
+localtime_r (3)      - transform date and time to broken-down time or ASCII
+locate (1)           - find files by name
+lock (2)             - unimplemented system calls
+lockf (3)            - apply, test or remove a POSIX lock on an open file
+lodraw (1)           - LibreOffice office suite
+loffice (1)          - LibreOffice office suite
+lofromtemplate (1)   - LibreOffice office suite
+log (3)              - natural logarithmic function
+log10 (3)            - base-10 logarithmic function
+log10f (3)           - base-10 logarithmic function
+log10l (3)           - base-10 logarithmic function
+log1p (3)            - logarithm of 1 plus argument
+log1pf (3)           - logarithm of 1 plus argument
+log1pl (3)           - logarithm of 1 plus argument
+log2 (3)             - base-2 logarithmic function
+log2f (3)            - base-2 logarithmic function
+log2l (3)            - base-2 logarithmic function
+logb (3)             - get exponent of a floating-point value
+logbf (3)            - get exponent of a floating-point value
+logbl (3)            - get exponent of a floating-point value
+logf (3)             - natural logarithmic function
+logger (1)           - enter messages into the system log
+login (1)            - begin session on the system
+login (3)            - write utmp and wtmp entries
+login.defs (5)       - shadow password suite configuration
+login_tty (3)        - terminal utility functions
+loginctl (1)         - Control the systemd login manager
+logind.conf (5)      - Login manager configuration files
+logind.conf.d (5)    - Login manager configuration files
+logl (3)             - natural logarithmic function
+logname (1)          - print user's login name
+logout (3)           - write utmp and wtmp entries
+logrotate (8)        - rotates, compresses, and mails system logs
+logrotate.conf (5)   - rotates, compresses, and mails system logs
+logsave (8)          - save the output of a command in a logfile
+logwtmp (3)          - append an entry to the wtmp file
+loimpress (1)        - LibreOffice office suite
+lomath (1)           - LibreOffice office suite
+longjmp (3)          - nonlocal jump to a saved stack context
+look (1)             - display lines beginning with a given string
+lookup_dcookie (2)   - return a directory entry's path
+loop (4)             - loop devices
+loop-control (4)     - loop devices
+lorder (1)           - list dependencies for object files
+losetup (8)          - set up and control loop devices
+loweb (1)            - LibreOffice office suite
+lowntfs-3g (8)       - Third Generation Read/Write NTFS Driver
+lowriter (1)         - LibreOffice office suite

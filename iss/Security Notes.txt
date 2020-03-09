@@ -1,0 +1,22 @@
+Security - CIA
+Vulnerability, Threat and Risk
+Data at Rest/Transit
+Insider/Outsider
+	Estonia/Stuxnet/Target/Banks..
+Top 10 Attacks
+ISO 27001, PA and PCI DSS, CSA, FedRAMP
+EV SSL	
+Cloud, 5G
+Cryptography - Symmetric / Asymmetric
+	AES, RSA
+	128/256
+Social Engineering
+MAC/IP/DNS
+VPN
+Whitelisting/Blacklisting
+Authentication/Authorization
+Repudiation
+Masquerade
+SIEM
+Behavioural
+Threat Intelligence

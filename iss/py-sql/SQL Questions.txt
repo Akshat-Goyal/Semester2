@@ -1,0 +1,55 @@
+							SQL QUERIES
+**********************************************************************************
+
+Emp - Empno, Ename, Salary, MgrNo, DeptNo, Date Of Birth
+Dept - DeptNo, DeptName
+
+1) Find the employees that do not belong to any department
+
+2) Write a query to get the name of an emaployee with nth highest salary 
+
+3) List the employee and the manager name of employees
+
+4) Show the count  of employees per department
+
+5) Get the list of employees whose salaries are more than the arithemtic mean
+
+6) Get the list of employees with name containing with "Ab"
+
+7) Display the list of employees that do not belong to XX department
+
+8) write a select that creates a cartesian product between Employee and Dept table
+
+9) Show the duplicate records in the employee table
+
+10) Select all employees whose salary is an even number
+
+11) Perform self join of employee table
+
+12) Show all the employees belong to department id 10
+
+13) Display  Max and Min salaries from Employee table
+
+14) Calculate Bonus based salary range
+
+15) Show distinct salaries
+
+16) Create a table Employee_Dup that contains same structure and records as in Employee
+
+17) Order records based on salaries and deptno
+
+18) Update Employees having Dept 10 to 20
+
+19) Select employees who would be getting retired in the next 1 month. retirement age is 60 years
+
+20) Select if there are any employees with same name
+
+21) Insert a record into Employee table
+
+22) Get the list of all employees in a table
+
+23) Get the list of employees who are in dept id 10 and 20
+
+24) Show all Dept no and name that do not have any employees assigned
+
+25)  Write a statement  that removes all records of a table permanently without a need to COMMIT the transaction. 

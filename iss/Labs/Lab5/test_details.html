@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	
+</head>
+<body>
+	<h1>Student Sheet</h1>
+	<table border="1">
+		<thead>
+			<tr id="heading">
+				<td>Name</td>
+				<td>max(marks)</td>
+				<td>min(marks)</td>
+				<td>average(marks)</td>
+			</tr>
+		</thead>
+		<tbody id="body">
+			
+		</tbody>
+	</table>
+	<script type="text/javascript" src="marks.js"></script>
+	<script type="text/javascript">
+		document.getElementById("heading").onmouseover=function(){
+				this.style.backgroundColor="green";
+			}
+		document.getElementById("heading").onmouseout=function(){
+				this.style.backgroundColor="white"
+			}
+
+		var table=document.getElementById("body");
+	
+		for(var i in ar){
+			var row=table.insertRow(-1);
+			row.onmouseover=function(){
+				this.style.backgroundColor="green";
+			}
+			row.onmouseout=function(){
+				this.style.backgroundColor="white"
+			}
+			var cell=row.insertCell(0);
+			cell.innerHTML=i;
+			
+			var max=0,min=1000,avg=0;
+			for(var j=0;j<5;j++){
+				if(max<ar[i][j])
+					max=ar[i][j];
+				if(min>ar[i][j])
+					min=ar[i][j];
+				avg+=ar[i][j];
+			}
+
+			cell=row.insertCell(1);
+			cell.innerHTML=max;
+			cell=row.insertCell(2);
+			cell.innerHTML=min;
+			cell=row.insertCell(3);
+			cell.innerHTML=avg/5;
+		}
+	</script>
+</body>
+</html>
