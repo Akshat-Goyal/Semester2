@@ -1,0 +1,19 @@
+x86-64 Practice ALP Problems
+
+While solving the following programs, you have to read the input from C program, call the assembly function and print the output in C. 
+
+    Find the sum of even elements in a matrix.    [ int sum(int *array, int m, int n) ]
+    Find the max/min of elements in a matrix.    [ int max(int *array, int m, int n) ]
+    Find the min of elements in a matrix.     [ int min(int *array, int m, int n) ]
+    Partition an array (as in quick sort). Use first element of array as a pivot. [ void partition(int *array, int noelements) ]
+    Compute the sum of first N numbers recrusively [ int sumN(int N) ]
+    Check if a given number is prime.   [ int isPrime(int N) ]
+    Check if a given 64-bit number contains odd number of 1s in its bit representation [ int parityCheck(int N) ]
+    Reverse a string [ void reverse(char *str) ]
+    Merge two sorted lists. [ void merge(int *lista, int sizea, int *listb, int sizeb) ]
+    Perform binary search for the position of an element in a sorted array.  [ int binarySearch(int *list, int size, int element) ]
+
+Challenge Problem
+
+    Count the number of moves in the Towers of Hanoi problem [ int countMovesHanoi(int nodisks) ]
+    Bubble sort elements in an array.           [ void sort(int *array, int noelements) 

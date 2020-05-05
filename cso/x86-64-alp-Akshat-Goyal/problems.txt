@@ -1,0 +1,6 @@
+    Write an x86-64 assemble language program to compute the Nth fibonacci number. N is provided through data section and you should store the computed fibonaccii number in the data section.
+    Challenge Problem: Solve the above problem but take N as user input through keyboard and print the computed fibonacci number on the screen.
+    Your fibonacci computation function should be in x86-64 assembly and you should call this function from the main function written in a C program.
+    Your main function should be in assembly and call the fibonacci function written in C. 
+    Write a recursive version of Fibonacci in x86-64 assembly.
+    Declare an array in data section of your assembly program. Write x86-64 assembly code to compute the sum and max of the array elements.
